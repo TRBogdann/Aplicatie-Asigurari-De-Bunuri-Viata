@@ -8,7 +8,7 @@ using Oracle.ManagedDataAccess.Client;
 namespace Proiect
 {
 
-    internal class Database
+    public class Database
     {
         private string error = "";
         private bool closed = true;

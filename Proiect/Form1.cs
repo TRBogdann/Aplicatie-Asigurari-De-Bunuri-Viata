@@ -12,20 +12,21 @@ using System.Windows.Forms;
 using MySqlX.XDevAPI;
 using Oracle.ManagedDataAccess.Client;
 
-// new AsigurareB().AllFields()
-// new AsigurareB().ParentsFields()
-// new AsigurareB().ChildFields()
+// new AsigurareB().ParentTable()
+// new AsigurareB().FullTable()
+// new AsigurareB().ChildTable()
 // Model.join(Model2,field,resulting object type,filter)
 
 namespace Proiect
 {
     public partial class Form1 : Form
     {
-        Model UserModel;
-        Model SessionModel;
-        Model AsigurareModel;
-        Model AsigurareBModel;
-        Model AsigurareVModel;
+         public static Model UserModel;
+         public static Model SessionModel;
+         public static Model AsigurareModel;
+         public static Model AsigurareBModel;
+         public static Model AsigurareVModel;
+   
         string dateSesiune = "sesiune.xml";
         Database date = new Database("193.226.34.57",1521, "orclpdb.docker.internal", "TRASCAUT_65","STUD");
         private bool allowshowdisplay = false;
@@ -69,7 +70,7 @@ namespace Proiect
             AsigurareModel = new Model(date, assigFields, assigTypes,"c_asigurari");
             AsigurareBModel = new Model(date, assigbFields, assigbTypes, "c_abunuri");
             AsigurareVModel = new Model(date, assigvFields, assigvTypes, "c_aviata");
-            allowshowdisplay = true;
+            allowshowdisplay = false;
  
             TryLogIn();
         }
@@ -85,8 +86,11 @@ namespace Proiect
                 List<FormObject> list = UserModel.select(new Utilizator(), string.Format("id_utilizator = '{0}'", sesiune.User_id));
                 Form4 mainForm = new Form4((Utilizator)list[0], sesiune);
                 this.DialogResult = DialogResult.OK;
+                this.allowshowdisplay = false;
                 this.Hide();
-                mainForm.Show();
+                mainForm.ShowDialog();
+                if (mainForm.DialogResult == DialogResult.Abort)
+                    this.Show();
             }
             else
             {
@@ -110,7 +114,12 @@ namespace Proiect
             this.DialogResult = DialogResult.OK;
             this.Hide();
             signForm.ShowDialog();
-            
+            if (signForm.DialogResult == DialogResult.OK)
+            {
+                this.Show();
+            }
+            else
+                this.Close();
             
 
         }
@@ -134,7 +143,8 @@ namespace Proiect
                     s.save(dateSesiune);
                     Form4 mainForm = new Form4(user, s);
                     this.Hide();
-                    mainForm.Show();
+                    mainForm.ShowDialog();
+                    this.Close();
                 }
                 else ok = false;
             }

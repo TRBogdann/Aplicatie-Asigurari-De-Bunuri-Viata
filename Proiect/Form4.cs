@@ -21,5 +21,12 @@ namespace Proiect
             this.sesiune1 = sesiune;
             label1.Text = user.ToString();
         }
+
+        private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1.SessionModel.delete(string.Format("id_sesiune = '{0}'",this.sesiune1.Id));
+            Sesiune.emptySession("sesiune.xml");
+            this.DialogResult = DialogResult.Abort;
+        }
     }
 }

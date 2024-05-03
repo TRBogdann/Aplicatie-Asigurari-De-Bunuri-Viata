@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.is_user = new System.Windows.Forms.TextBox();
             this.is_nume = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +48,10 @@
             this.is_pass2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.is_salariul = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // is_user
@@ -56,6 +61,8 @@
             this.is_user.Name = "is_user";
             this.is_user.Size = new System.Drawing.Size(392, 43);
             this.is_user.TabIndex = 1;
+            this.is_user.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.is_user_KeyPress);
+            this.is_user.KeyUp += new System.Windows.Forms.KeyEventHandler(this.is_user_KeyUp);
             // 
             // is_nume
             // 
@@ -64,6 +71,7 @@
             this.is_nume.Name = "is_nume";
             this.is_nume.Size = new System.Drawing.Size(392, 39);
             this.is_nume.TabIndex = 2;
+            this.is_nume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.is_nume_KeyPress);
             // 
             // label1
             // 
@@ -99,6 +107,7 @@
             this.is_prenume.Name = "is_prenume";
             this.is_prenume.Size = new System.Drawing.Size(392, 39);
             this.is_prenume.TabIndex = 7;
+            this.is_prenume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.is_prenume_KeyPress);
             // 
             // is_email
             // 
@@ -107,6 +116,7 @@
             this.is_email.Name = "is_email";
             this.is_email.Size = new System.Drawing.Size(392, 39);
             this.is_email.TabIndex = 8;
+            this.is_email.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.is_email_KeyPress);
             // 
             // label4
             // 
@@ -124,6 +134,7 @@
             this.is_telefon.Name = "is_telefon";
             this.is_telefon.Size = new System.Drawing.Size(392, 39);
             this.is_telefon.TabIndex = 10;
+            this.is_telefon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.is_telefon_KeyPress);
             // 
             // label5
             // 
@@ -144,6 +155,7 @@
             this.is_sex.Name = "is_sex";
             this.is_sex.Size = new System.Drawing.Size(392, 33);
             this.is_sex.TabIndex = 12;
+            this.is_sex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.is_sex_KeyPress);
             // 
             // label6
             // 
@@ -172,33 +184,36 @@
             // 
             // signup
             // 
-            this.signup.Location = new System.Drawing.Point(612, 801);
+            this.signup.Location = new System.Drawing.Point(620, 847);
             this.signup.Name = "signup";
             this.signup.Size = new System.Drawing.Size(179, 63);
             this.signup.TabIndex = 16;
             this.signup.Text = "Sign up";
             this.signup.UseVisualStyleBackColor = true;
+            this.signup.Click += new System.EventHandler(this.signup_Click);
             // 
             // is_pass1
             // 
-            this.is_pass1.Location = new System.Drawing.Point(521, 626);
+            this.is_pass1.Location = new System.Drawing.Point(521, 692);
             this.is_pass1.Multiline = true;
             this.is_pass1.Name = "is_pass1";
             this.is_pass1.Size = new System.Drawing.Size(392, 39);
             this.is_pass1.TabIndex = 17;
+            this.is_pass1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.is_pass1_KeyPress);
             // 
             // is_pass2
             // 
-            this.is_pass2.Location = new System.Drawing.Point(521, 703);
+            this.is_pass2.Location = new System.Drawing.Point(521, 763);
             this.is_pass2.Multiline = true;
             this.is_pass2.Name = "is_pass2";
             this.is_pass2.Size = new System.Drawing.Size(392, 39);
             this.is_pass2.TabIndex = 18;
+            this.is_pass2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.is_pass2_KeyPress);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(327, 640);
+            this.label8.Location = new System.Drawing.Point(327, 695);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 25);
             this.label8.TabIndex = 19;
@@ -207,17 +222,41 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(285, 706);
+            this.label9.Location = new System.Drawing.Point(295, 766);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(166, 25);
             this.label9.TabIndex = 20;
             this.label9.Text = "Confirma Parola";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // is_salariul
+            // 
+            this.is_salariul.Location = new System.Drawing.Point(521, 626);
+            this.is_salariul.Multiline = true;
+            this.is_salariul.Name = "is_salariul";
+            this.is_salariul.Size = new System.Drawing.Size(392, 39);
+            this.is_salariul.TabIndex = 21;
+            this.is_salariul.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.is_salariul_KeyPress);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(313, 629);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(84, 25);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Salariul";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 956);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.is_salariul);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.is_pass2);
@@ -239,6 +278,7 @@
             this.Controls.Add(this.is_user);
             this.Name = "Form2";
             this.Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +305,8 @@
         private System.Windows.Forms.TextBox is_pass2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox is_salariul;
     }
 }

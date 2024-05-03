@@ -11,7 +11,7 @@ using Google.Protobuf.Reflection;
 
 namespace Proiect
 {    
-    enum FieldTypeSQL {numeric,character,date};
+    public enum FieldTypeSQL {numeric,character,date};
     
     public abstract class FormObject
     {
@@ -19,7 +19,7 @@ namespace Proiect
         abstract public MapField<string, string> fieldValue();
         abstract public FormObject genObject(MapField<string,string> fieldValue);
     }
-    internal class Model
+    public class Model
     {
         private Database db;
         string[] fields;
@@ -122,6 +122,15 @@ namespace Proiect
             }
             query = query.Remove(query.Length - 1, 1);
             query += " WHERE " + filter;
+            OracleCommand cm = new OracleCommand();
+            cm.Connection = db.connection;
+            cm.CommandText = query;
+            int result = cm.ExecuteNonQuery();
+            return result;
+        }
+        public int delete(string filter)
+        {
+            string query = "DELETE FROM "+table+" WHERE "+filter;
             OracleCommand cm = new OracleCommand();
             cm.Connection = db.connection;
             cm.CommandText = query;
