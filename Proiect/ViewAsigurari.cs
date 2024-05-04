@@ -33,22 +33,30 @@ namespace Proiect
         }
        public void Clear()
         {
-            
-            this.Nodes.Clear();
-            string vText = "Asigurare de viata";
-            TreeNode treeNode = new TreeNode();
-            treeNode.Text = vText;
-            treeNode.Tag = vText;
-            treeNode.Nodes.Add(new TreeNode("None"));
-            this.Nodes.Add(treeNode);
 
+            if (exV)
+            {
+                this.Nodes[0].Remove();
+                string vText = "Asigurare de viata";
+                TreeNode treeNode = new TreeNode();
+                treeNode.Text = vText;
+                treeNode.Tag = vText;
+                treeNode.Nodes.Add(new TreeNode("None"));
+                this.Nodes.Add(treeNode);
+                exV = false;
+            }
 
-            string bText = "Asigurari de bunuri";
-            TreeNode treeNode2 = new TreeNode();
-            treeNode2.Text = bText;
-            treeNode2.Tag = bText;
-            treeNode2.Nodes.Add(new TreeNode("None"));
-            this.Nodes.Add(treeNode2);
+            if (exB)
+            {
+                this.Nodes[1].Remove();
+                string bText = "Asigurari de bunuri";
+                TreeNode treeNode2 = new TreeNode();
+                treeNode2.Text = bText;
+                treeNode2.Tag = bText;
+                treeNode2.Nodes.Add(new TreeNode("None"));
+                this.Nodes.Add(treeNode2);
+                exB = false;
+            }
         }
         public void addAsigurareBunuri(AsigurareBunuri b)
         {
