@@ -64,6 +64,47 @@ namespace Proiect
             }
             return list;
         }
+        public List<FormObject> join(Model model, string joinField,FormObject transformer, string filter="")
+        {
+            List<FormObject> list = new List<FormObject>();
+            string query = "SELECT ";
+            foreach (string str in fields)
+            {
+                query += "m1."+str + ",";
+            }
+            foreach (string str in model.fields)
+            {
+                query += "m2." + str + ",";
+            }
+            query = query.Remove(query.Length - 1, 1);
+            query += " FROM " + table+" m1 JOIN "+model.table+" m2 ";
+            query += "ON m1." + joinField + "=m2." + joinField;
+            if (filter != "")
+            {
+                query += " WHERE " + filter;
+            }
+            OracleCommand command = new OracleCommand();
+            command.Connection = db.connection;
+            command.CommandText = query;
+
+            OracleDataReader read = command.ExecuteReader();
+            while (read.Read())
+            {
+                MapField<string, string> map = new MapField<string, string>();
+                foreach (string str in fields)
+                {
+                    map.Add(str, read[str].ToString());
+                }
+                foreach (string str in model.fields)
+                {
+                    if(str != joinField) 
+                        map.Add(str, read[str].ToString());
+                }
+                FormObject obj = transformer.genObject(map);
+                list.Add(obj);
+            }
+            return list;
+        }
         public int insert(FormObject ob)
         {
             MapField<string, string> map = ob.fieldValue();
@@ -89,6 +130,8 @@ namespace Proiect
             query2 = query2.Remove(query2.Length - 1, 1);
             query1 += ") ";
             query2 += ")";
+            //MessageBox.Show(query1 + query2,"verif",MessageBoxButtons.OK);
+            //return 0;
             OracleCommand oracleCommand = new OracleCommand();
             oracleCommand.Connection = db.connection;
             oracleCommand.CommandText = query1 + query2;

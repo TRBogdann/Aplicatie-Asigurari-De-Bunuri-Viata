@@ -12,9 +12,9 @@ using System.Windows.Forms;
 using MySqlX.XDevAPI;
 using Oracle.ManagedDataAccess.Client;
 
-// new AsigurareB().ParentTable()
-// new AsigurareB().FullTable()
-// new AsigurareB().ChildTable()
+//  AsigurareB().ParentTable()
+//  AsigurareB().FullTable()
+//  AsigurareB().ChildTable()
 // Model.join(Model2,field,resulting object type,filter)
 
 namespace Proiect
@@ -81,7 +81,8 @@ namespace Proiect
                 Sesiune.emptySession(dateSesiune);
             }
             Sesiune sesiune = Sesiune.restore(dateSesiune);
-            if (!sesiune.User_id.Equals(""))
+            int count = SessionModel.select(new Sesiune(),"id_sesiune='"+sesiune.Id+"'").Count;
+            if (!sesiune.User_id.Equals("") && sesiune.Ip == Sesiune.getIpAdress() && count>0)
             {
                 List<FormObject> list = UserModel.select(new Utilizator(), string.Format("id_utilizator = '{0}'", sesiune.User_id));
                 Form4 mainForm = new Form4((Utilizator)list[0], sesiune);
@@ -90,12 +91,16 @@ namespace Proiect
                 this.Hide();
                 mainForm.ShowDialog();
                 if (mainForm.DialogResult == DialogResult.Abort)
-                    this.Show();
+                {
+                    allowshowdisplay = true;
+                    this.Visible = true;
+                }
             }
             else
             {
+                Sesiune.emptySession(dateSesiune);
                 allowshowdisplay = true;
-                this.Show();
+                this.Visible = true;
             }
         }
          ~Form1()
@@ -116,7 +121,7 @@ namespace Proiect
             signForm.ShowDialog();
             if (signForm.DialogResult == DialogResult.OK)
             {
-                this.Show();
+                this.Visible = true;
             }
             else
                 this.Close();
@@ -144,7 +149,15 @@ namespace Proiect
                     Form4 mainForm = new Form4(user, s);
                     this.Hide();
                     mainForm.ShowDialog();
-                    this.Close();
+                    if (mainForm.DialogResult == DialogResult.Abort)
+                    {
+                        this.allowshowdisplay = true;
+                        this.Show();
+                    }
+                    else {
+                        this.Dispose();
+                        this.Close();
+                    }
                 }
                 else ok = false;
             }
@@ -152,7 +165,7 @@ namespace Proiect
                 ok = false;
             if(!ok)
             {
-                MessageBox.Show("Utilizator inexistent", "Eroare", MessageBoxButtons.OKCancel);
+                MessageBox.Show("Utilizator inexistent sau parola incorecta", "Eroare", MessageBoxButtons.OKCancel);
             }
         }
     }

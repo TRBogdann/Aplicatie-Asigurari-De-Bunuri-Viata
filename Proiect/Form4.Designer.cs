@@ -29,24 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adaugaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asigurareDeViataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asigurareDeBunuriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.viewAsigurari1 = new Proiect.ViewAsigurari();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(347, 182);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
             // 
             // menuStrip1
             // 
@@ -57,15 +50,9 @@
             this.adaugaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(1376, 40);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // accountToolStripMenuItem
             // 
@@ -73,34 +60,62 @@
             this.loToolStripMenuItem,
             this.logOutToolStripMenuItem});
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(121, 38);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(121, 36);
             this.accountToolStripMenuItem.Text = "Account";
             // 
             // loToolStripMenuItem
             // 
             this.loToolStripMenuItem.Name = "loToolStripMenuItem";
-            this.loToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.loToolStripMenuItem.Size = new System.Drawing.Size(233, 44);
             this.loToolStripMenuItem.Text = "Info";
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(233, 44);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // adaugaToolStripMenuItem
             // 
+            this.adaugaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.asigurareDeViataToolStripMenuItem,
+            this.asigurareDeBunuriToolStripMenuItem});
             this.adaugaToolStripMenuItem.Name = "adaugaToolStripMenuItem";
             this.adaugaToolStripMenuItem.Size = new System.Drawing.Size(105, 36);
             this.adaugaToolStripMenuItem.Text = "Creaza";
+            // 
+            // asigurareDeViataToolStripMenuItem
+            // 
+            this.asigurareDeViataToolStripMenuItem.Name = "asigurareDeViataToolStripMenuItem";
+            this.asigurareDeViataToolStripMenuItem.Size = new System.Drawing.Size(358, 44);
+            this.asigurareDeViataToolStripMenuItem.Text = "Asigurare de Viata";
+            // 
+            // asigurareDeBunuriToolStripMenuItem
+            // 
+            this.asigurareDeBunuriToolStripMenuItem.Name = "asigurareDeBunuriToolStripMenuItem";
+            this.asigurareDeBunuriToolStripMenuItem.Size = new System.Drawing.Size(358, 44);
+            this.asigurareDeBunuriToolStripMenuItem.Text = "Asigurare de Bunuri";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // viewAsigurari1
+            // 
+            this.viewAsigurari1.Location = new System.Drawing.Point(271, 151);
+            this.viewAsigurari1.Name = "viewAsigurari1";
+            this.viewAsigurari1.Size = new System.Drawing.Size(763, 447);
+            this.viewAsigurari1.TabIndex = 2;
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1376, 764);
+            this.Controls.Add(this.viewAsigurari1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form4";
@@ -113,13 +128,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem accountToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem loToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adaugaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asigurareDeViataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asigurareDeBunuriToolStripMenuItem;
+        private ViewAsigurari viewAsigurari1;
     }
 }

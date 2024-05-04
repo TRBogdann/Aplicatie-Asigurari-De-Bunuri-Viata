@@ -58,12 +58,10 @@ namespace Proiect
             string session_id = "";
             for(int i = 0;i<20;i++)
             {
-                session_id += ((char)rdr.Next(33, 127)).ToString();
-
+                session_id += ((char)rdr.Next((int)'A', (int)'z')).ToString();
             }
             session_id += user_id.Substring(0,5);
-            session_id += this.data.Year.ToString().Substring(2, 2) + this.data.Month.ToString() + this.data.Day+ToString()
-                +this.data.Hour.ToString()+this.data.Minute.ToString();
+            session_id += this.Data.Year.ToString().Substring(2, 2) + this.Data.Month.ToString()+this.Data.Day.ToString()+this.Data.Hour.ToString()+this.Data.Minute.ToString();
             return session_id;
         }
         public Sesiune(string user_id)
