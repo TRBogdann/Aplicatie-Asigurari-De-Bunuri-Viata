@@ -49,6 +49,7 @@
             this.il_pass.Location = new System.Drawing.Point(295, 275);
             this.il_pass.Multiline = true;
             this.il_pass.Name = "il_pass";
+            this.il_pass.PasswordChar = '*';
             this.il_pass.Size = new System.Drawing.Size(392, 39);
             this.il_pass.TabIndex = 1;
             // 
@@ -84,6 +85,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.label3.ForeColor = System.Drawing.Color.Teal;
             this.label3.Location = new System.Drawing.Point(236, 502);
             this.label3.Name = "label3";
@@ -96,6 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1012, 640);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

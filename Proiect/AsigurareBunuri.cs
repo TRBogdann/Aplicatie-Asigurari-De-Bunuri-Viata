@@ -33,13 +33,15 @@ namespace Proiect
             this.denumire_bun = denumire_bun;
             this.valoare = valoare;
             this.istoric_defectiuni = istoric_defectiuni;
+            tip_asigurare = 'b';
         }
         public AsigurareBunuri():base()
         {
             this.denumire_bun = "";
             this.istoric_defectiuni = '0';
             this.valoare = 0.0;
-        }
+            tip_asigurare = 'b';
+         }
         public AsigurareBunuri(int id_asigurare, char acoperire, string id_utilizator, string denumire_bun,double valoare,char istoric_defectiuni) :
             base(id_asigurare, 'b', acoperire, id_utilizator)
         {

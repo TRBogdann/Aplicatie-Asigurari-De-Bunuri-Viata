@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Proiect
 {
-    internal class AsigurareViata : Asigurare
+    public class AsigurareViata : Asigurare
     {
         private char istoric_afectiuni; //0-rist scazut //1-risc mediu //2-risc mare;
         public char Istoric_afectiuni

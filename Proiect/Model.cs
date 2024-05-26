@@ -145,7 +145,7 @@ namespace Proiect
                 return 0;
 
             MapField<string, string> map = ob.fieldValue();
-            string query = "UPDATE " + table+" ";
+            string query = "UPDATE " + table+" SET ";
             foreach( string it in fieldsToUpdate)
             {
                 int i = 0;
@@ -161,7 +161,7 @@ namespace Proiect
                 else
                     formatted = map[it];
                 
-                query += "SET " + it + "=" + formatted + ",";
+                query += it + "=" + formatted + ",";
             }
             query = query.Remove(query.Length - 1, 1);
             query += " WHERE " + filter;

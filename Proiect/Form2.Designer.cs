@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.is_user = new System.Windows.Forms.TextBox();
             this.is_nume = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -76,6 +77,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(336, 116);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 25);
@@ -85,6 +88,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(334, 270);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 25);
@@ -94,6 +99,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(343, 197);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 25);
@@ -121,6 +128,8 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(336, 350);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 25);
@@ -139,6 +148,8 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
             this.label5.Location = new System.Drawing.Point(327, 428);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 25);
@@ -160,6 +171,8 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
             this.label6.Location = new System.Drawing.Point(343, 503);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 25);
@@ -169,6 +182,8 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
             this.label7.Location = new System.Drawing.Point(313, 571);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(138, 25);
@@ -197,6 +212,7 @@
             this.is_pass1.Location = new System.Drawing.Point(521, 692);
             this.is_pass1.Multiline = true;
             this.is_pass1.Name = "is_pass1";
+            this.is_pass1.PasswordChar = '*';
             this.is_pass1.Size = new System.Drawing.Size(392, 39);
             this.is_pass1.TabIndex = 17;
             this.is_pass1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.is_pass1_KeyPress);
@@ -206,6 +222,7 @@
             this.is_pass2.Location = new System.Drawing.Point(521, 763);
             this.is_pass2.Multiline = true;
             this.is_pass2.Name = "is_pass2";
+            this.is_pass2.PasswordChar = '*';
             this.is_pass2.Size = new System.Drawing.Size(392, 39);
             this.is_pass2.TabIndex = 18;
             this.is_pass2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.is_pass2_KeyPress);
@@ -213,6 +230,8 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.ForeColor = System.Drawing.SystemColors.Control;
             this.label8.Location = new System.Drawing.Point(327, 695);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 25);
@@ -222,6 +241,8 @@
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.ForeColor = System.Drawing.SystemColors.Control;
             this.label9.Location = new System.Drawing.Point(295, 766);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(166, 25);
@@ -244,6 +265,8 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.ForeColor = System.Drawing.SystemColors.Control;
             this.label10.Location = new System.Drawing.Point(313, 629);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(84, 25);
@@ -254,6 +277,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1354, 956);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.is_salariul);

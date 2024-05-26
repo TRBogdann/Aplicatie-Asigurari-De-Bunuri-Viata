@@ -95,6 +95,12 @@ namespace Proiect
                     allowshowdisplay = true;
                     this.Visible = true;
                 }
+                else
+                {
+                    this.Dispose();
+                    this.Close();
+                    Environment.Exit(0);
+                }
             }
             else
             {
